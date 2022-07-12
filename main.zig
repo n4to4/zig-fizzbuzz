@@ -1,7 +1,12 @@
 const std = @import("std");
 const print = std.debug.print;
 
-pub fn main() anyerror!void {
+pub fn main() !void {
+    const stdout = std.io.getStdOut().writer();
+    try stdout.print("Hello, {s}!\n", .{"world"});
+}
+
+fn fizzbuzz() void {
     var i: usize = 1;
     while (i < 16) {
         if (i % 15 == 0) {
